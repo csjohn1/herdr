@@ -1,5 +1,3 @@
-# Aivia Inc. Front End Developer Production Test
-
 # herdr
 
 ## Overview
