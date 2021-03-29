@@ -1,0 +1,35 @@
+.topbar {
+  display: flex;
+  height: 75px;
+  background: linear-gradient(to right, #e4b4c2, #e7cee3);
+  box-shadow: 1px 1px 5px grey;
+  font-size: 24px;
+  text-align: center;
+  width: 375px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  position: relative;
+}
+
+@media only screen and (max-width: 1224px) {
+  .topbar {
+    width: 100%;
+  }
+}
+
+.top-title-logo {
+  display: flex;
+  flex-direction: row;
+  padding-left: 25px;
+}
+
+.top-title {
+  font-size: 36px;
+  padding-left: 10px;
+  font-family: "CircularStd-Black";
+}
+
+.top-arrow {
+  padding-right: 25px;
+}

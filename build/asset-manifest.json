@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c1aee86d.chunk.css",
+    "main.js": "/static/js/main.46a6a9c1.chunk.js",
+    "main.js.map": "/static/js/main.46a6a9c1.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.88c3cb21.js",
+    "runtime-main.js.map": "/static/js/runtime-main.88c3cb21.js.map",
+    "static/css/2.3f6a4e7d.chunk.css": "/static/css/2.3f6a4e7d.chunk.css",
+    "static/js/2.866d9ea6.chunk.js": "/static/js/2.866d9ea6.chunk.js",
+    "static/js/2.866d9ea6.chunk.js.map": "/static/js/2.866d9ea6.chunk.js.map",
+    "static/js/3.0ec14132.chunk.js": "/static/js/3.0ec14132.chunk.js",
+    "static/js/3.0ec14132.chunk.js.map": "/static/js/3.0ec14132.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.3f6a4e7d.chunk.css.map": "/static/css/2.3f6a4e7d.chunk.css.map",
+    "static/css/main.c1aee86d.chunk.css.map": "/static/css/main.c1aee86d.chunk.css.map",
+    "static/js/2.866d9ea6.chunk.js.LICENSE.txt": "/static/js/2.866d9ea6.chunk.js.LICENSE.txt",
+    "static/media/CircularStd-Black.5000f157.ttf": "/static/media/CircularStd-Black.5000f157.ttf",
+    "static/media/arrow.fee13e32.svg": "/static/media/arrow.fee13e32.svg",
+    "static/media/goat.d2b15b39.png": "/static/media/goat.d2b15b39.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.88c3cb21.js",
+    "static/css/2.3f6a4e7d.chunk.css",
+    "static/js/2.866d9ea6.chunk.js",
+    "static/css/main.c1aee86d.chunk.css",
+    "static/js/main.46a6a9c1.chunk.js"
+  ]
+}

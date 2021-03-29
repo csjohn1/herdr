@@ -1,0 +1,36 @@
+.swipe {
+  position: absolute;
+}
+
+.image-card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 330px;
+}
+
+.image-card {
+  position: relative;
+  background-color: #fff;
+  width: 80vw;
+  max-width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 1px 1px 3px #e0e1e9;
+}
+
+.image-card-container h2 {
+  position: absolute;
+  bottom: 0;
+  margin: 10px;
+  color: #fff;
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    height: 300px;
+  }
+}
