@@ -13,11 +13,10 @@ export const ChatContext = createContext({
 let reducer = (state, action) => {
   switch (action.type) {
     case "open_chat":
-      console.log('AYO')
       return {
         ...state,
         open: true,
-        chat_id: action.chat_id
+        chat_id: action.payload.chat_id
       }
     case "close_chat":
       return {

@@ -19,25 +19,26 @@ export function SideBar() {
   return (
     <div className="sidebar">
       {orderedMatches.length ? (
-        orderedMatches.map((e) => {
+        orderedMatches.map((match) => {
           return (
             <div
               className="side-card"
-              key={e.name}
+              key={match.id}
               onClick={() => {
-                setName(e.name);
-                setUrl(e.url);
+                console.log(match)
+                setName(match.name);
+                setUrl(match.url);
                 //setDialog(true);
                 chatDispatch({
                   type: 'open_chat',
                   payload: {
-                    chat_id: 99
+                    chat_id: match.id
                   }
                 })
               }}
             >
-              <img className="side-img" src={e.url} alt="Goat matches" />
-              <p className="name">{e.name}</p>
+              <img className="side-img" src={match.url} alt="Goat matches" />
+              <p className="name">{match.name}</p>
             </div>
           );
         })
