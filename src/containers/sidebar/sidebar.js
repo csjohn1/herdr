@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import Modal from "react-modal";
 import { store } from "../../context/matches.js";
+import { ChatContext } from '../../context/chat'
 import "./sidebar.css";
 
 export function SideBar() {
   const state = useContext(store);
+  const { chatState, chatDispatch } = useContext(ChatContext) 
   const [dialog, setDialog] = useState(false);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
@@ -25,7 +27,13 @@ export function SideBar() {
               onClick={() => {
                 setName(e.name);
                 setUrl(e.url);
-                setDialog(true);
+                //setDialog(true);
+                chatDispatch({
+                  type: 'open_chat',
+                  payload: {
+                    chat_id: 99
+                  }
+                })
               }}
             >
               <img className="side-img" src={e.url} alt="Goat matches" />
