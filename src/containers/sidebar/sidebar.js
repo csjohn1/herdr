@@ -1,10 +1,10 @@
 import React, { useState, useContext } from "react";
 import Modal from "react-modal";
-import { store } from "../../context/matches.js";
+import { match } from "../../context/matches.js";
 import "./sidebar.css";
 
 export function SideBar() {
-  const state = useContext(store);
+  const state = useContext(match);
   const [dialog, setDialog] = useState(false);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");

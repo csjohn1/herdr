@@ -1,11 +1,11 @@
 import React, { useReducer, createContext } from "react";
 
 const initialState = { matches: [] };
-const store = createContext(initialState);
-const { Provider } = store;
+const match = createContext(initialState);
+const { Provider } = match;
 
-const StateProvider = ({ children }) => {
-  const [state, dispatch] = useReducer((state, action) => {
+const MatchProvider = ({ children }) => {
+  const [state, matchDispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "MATCH":
         return {
@@ -16,7 +16,7 @@ const StateProvider = ({ children }) => {
     }
   }, initialState);
 
-  return <Provider value={{ state, dispatch }}>{children}</Provider>;
+  return <Provider value={{ state, matchDispatch }}>{children}</Provider>;
 };
 
-export { store, StateProvider };
+export { match, MatchProvider };

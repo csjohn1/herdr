@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
-import { store } from "../../context/matches.js";
+import { match } from "../../context/matches.js";
+import { store } from "../../context/cards.js";
 import TinderCard from "react-tinder-card";
-import { db } from "../../data/data.js";
 import "./image_card.css";
 
 export function ImageCard(props) {
-  const state = useContext(store);
-  const { dispatch } = state;
-  const characters = db;
+  const { matchDispatch } = useContext(match);
+  const { state, cardDispatch } = useContext(store);
+  const characters = state.cards;
 
   const swiped = (direction, character) => {
     if (direction === "right" && character.match) {
-      dispatch({ type: "MATCH", matches: character });
+      matchDispatch({ type: "MATCH", matches: character });
       props.toastHandler("toast");
     }
+    cardDispatch({ type: "REMOVE", character });
   };
-
+  
   return (
     <div className="image-card-container">
       {characters.map((character) => (

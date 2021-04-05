@@ -1,15 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { StateProvider } from "./context/matches.js";
+import { MatchProvider } from "./context/matches.js";
+import { CardProvider } from "./context/cards.js";
 import "./assets/fonts/circular-std/CircularStd-Black.ttf";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StateProvider>
-      <App />
-    </StateProvider>
+    <CardProvider>
+      <MatchProvider>
+        <App />
+      </MatchProvider>
+    </CardProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
