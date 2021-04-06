@@ -1,10 +1,12 @@
 import React, { useState, useContext } from "react";
 import Modal from "react-modal";
 import { match } from "../../context/matches.js";
+import { ChatContext } from '../../context/chat'
 import "./sidebar.css";
 
 export function SideBar() {
   const state = useContext(match);
+  const { chatDispatch } = useContext(ChatContext) 
   const [dialog, setDialog] = useState(false);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");
@@ -17,19 +19,26 @@ export function SideBar() {
   return (
     <div className="sidebar">
       {orderedMatches.length ? (
-        orderedMatches.map((e) => {
+        orderedMatches.map((match) => {
           return (
             <div
               className="side-card"
-              key={e.name}
+              key={match.id}
               onClick={() => {
-                setName(e.name);
-                setUrl(e.url);
-                setDialog(true);
+                console.log(match)
+                setName(match.name);
+                setUrl(match.url);
+                //setDialog(true);
+                chatDispatch({
+                  type: 'open_chat',
+                  payload: {
+                    chat_id: match.id
+                  }
+                })
               }}
             >
-              <img className="side-img" src={e.url} alt="Goat matches" />
-              <p className="name">{e.name}</p>
+              <img className="side-img" src={match.url} alt="Goat matches" />
+              <p className="name">{match.name}</p>
             </div>
           );
         })

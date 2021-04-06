@@ -1,10 +1,13 @@
 import { Home } from "./pages/home";
+import { ChatProvider } from './context/chat'
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <ChatProvider>
+      <div className="App">
+        <Home />
+      </div>
+    </ChatProvider>
   );
 }
 
