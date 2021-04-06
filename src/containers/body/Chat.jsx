@@ -25,7 +25,10 @@ export default function Chat () {
       texts.map((text) => {
         return (
           <div className={`textContainer_${text.sender}`}>
-            <p className={`${text.sender}`} >{text.message}</p>
+            {text.sender === 'Goat' &&
+              <img className='chatProfilePic' src={goat.url} />
+            }
+            <p className={`${text.sender}_text`} >{text.message}</p>
           </div>
         )
       })

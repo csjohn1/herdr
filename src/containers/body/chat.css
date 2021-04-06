@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.Human {
+.Human_text {
   background-color: #23b3cd;
   border-radius: 20px;
   color: white;
@@ -10,15 +10,27 @@
   width: fit-content;
 }
 
-.Goat {
+.Goat_text {
   background-color: lightgrey;
   border-radius: 20px;
   color: black;
   padding: 15px;
   width: fit-content;
+  margin-left: 10px;
 }
 
 .textContainer_Human {
   display: flex;
   justify-content: flex-end;
+}
+
+.textContainer_Goat {
+  display: flex;
+}
+
+.chatProfilePic {
+  border-radius: 50%;
+  height: 75px;
+  width: 75px;
+  object-fit: cover;
 }
