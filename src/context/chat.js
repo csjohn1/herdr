@@ -1,4 +1,4 @@
-import React, { useReducer, useState, useEffect, createContext } from "react";
+import React, { useReducer, createContext } from "react";
 
 const initialState = {
   open: false,

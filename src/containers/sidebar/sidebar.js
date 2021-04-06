@@ -6,7 +6,7 @@ import "./sidebar.css";
 
 export function SideBar() {
   const state = useContext(store);
-  const { chatState, chatDispatch } = useContext(ChatContext) 
+  const { chatDispatch } = useContext(ChatContext) 
   const [dialog, setDialog] = useState(false);
   const [name, setName] = useState("");
   const [url, setUrl] = useState("");

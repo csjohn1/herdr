@@ -1,0 +1,24 @@
+.greeting {
+  text-align: center;
+}
+
+.Human {
+  background-color: #23b3cd;
+  border-radius: 20px;
+  color: white;
+  padding: 15px;
+  width: fit-content;
+}
+
+.Goat {
+  background-color: lightgrey;
+  border-radius: 20px;
+  color: black;
+  padding: 15px;
+  width: fit-content;
+}
+
+.textContainer_Human {
+  display: flex;
+  justify-content: flex-end;
+}

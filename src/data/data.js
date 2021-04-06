@@ -50,3 +50,25 @@ export const db = [
     match: true,
   },
 ];
+
+
+export const chatDb = {
+  9: [
+    {
+      sender: 'Goat',
+      message: 'BAAAAAAAA'
+    },
+    {
+      sender: 'Human',
+      message: 'Hawt',
+    },
+    {
+      sender: 'Human',
+      message: 'Wana hang?'
+    },
+    {
+      sender: 'Goat',
+      message: 'BaaAAAAaaa'
+    }
+  ]
+}
