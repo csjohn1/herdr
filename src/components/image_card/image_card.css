@@ -35,3 +35,11 @@
     height: 300px;
   }
 }
+
+.custom-button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  justify-self: flex-start;
+  align-self: flex-start;
+}
