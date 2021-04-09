@@ -34,3 +34,17 @@
   width: 75px;
   object-fit: cover;
 }
+
+.chat_input {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin-left: 375px;
+  width: calc(100vw - 375px);
+}
+
+.chat_inputField {
+  padding: 10px;
+  flex: 1;
+}

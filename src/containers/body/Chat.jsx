@@ -5,8 +5,9 @@ import './chat.css'
 
 
 export default function Chat () {
-  const { chatState } = useContext(ChatContext)
-  const [texts ] = useState(chatDb[chatState.chat_id] || null)
+  const { chatState, chatDispatch } = useContext(ChatContext)
+  const [texts, setTexts] = useState(chatDb[chatState.chat_id] || null)
+  const [input, setInput] = useState('')
   const getCurrentGoat = () => {
     for (const goat of db) {
       if (goat.id === chatState.chat_id) return goat
@@ -33,6 +34,29 @@ export default function Chat () {
         )
       })
     )}
+    <form className='chat_input'>
+      <input 
+      className='chat_inputField'
+      placeholder="Type a message..."
+      type='text'
+      value={input}
+      onChange={ (e) => setInput(e.target.value)}
+      />
+      <button 
+      type='submit'
+      onClick={(e) => {
+        e.preventDefault()
+        setTexts([...texts, 
+          { 
+            sender: 'Human',
+            message: input }
+        ])}
+
+      } 
+      >
+        Send
+      </button>
+    </form>
     </>
   )
 }
