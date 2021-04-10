@@ -1,5 +1,22 @@
 import React, { useReducer, createContext } from "react";
 
+const createGoatMsg = () => {
+  //Creates a random number between the min and max inclusive and generates a Baa with that many a's
+  let response = 'B'
+  const min = Math.ceil(15);
+  const max = Math.floor(1);
+  const aCount = Math.floor(Math.random() * (max - min) + min);
+
+  for (let i = 0; i < aCount; i++) {
+    if (Math.random() >= 0.5) {
+      response += 'a'
+      continue
+    }
+    response += 'A'
+  }
+  return response
+}
+
 const initialState = {
   open: false,
   chat_id: null
@@ -7,7 +24,7 @@ const initialState = {
 
 export const ChatContext = createContext({
   chatState: initialState,
-  chatDispatch: () => {},
+  chatDispatch: () => { },
 })
 
 let reducer = (state, action) => {
@@ -23,8 +40,20 @@ let reducer = (state, action) => {
         ...state,
         open: false,
       }
-    default: 
-    return state
+    case "goat_reply":
+      action.payload.setTexts([
+        ...action.payload.texts,
+        {
+          sender: 'Goat',
+          message: createGoatMsg()
+
+        }
+      ])
+      return {
+        ...state
+      }
+    default:
+      return state
   }
 }
 

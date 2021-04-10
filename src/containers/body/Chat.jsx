@@ -8,6 +8,8 @@ export default function Chat () {
   const { chatState, chatDispatch } = useContext(ChatContext)
   const [texts, setTexts] = useState(chatDb[chatState.chat_id] || null)
   const [input, setInput] = useState('')
+  //Last msg is to prevent an infinite loop on the useEffect that triggers a goat response
+  const [lastMsg, setLastMsg] = useState('')
   const getCurrentGoat = () => {
     for (const goat of db) {
       if (goat.id === chatState.chat_id) return goat
@@ -15,10 +17,37 @@ export default function Chat () {
     return null
   }
   const goat = getCurrentGoat()
+
+  const handleSendText = async (e) => {
+    e.preventDefault()
+    setLastMsg('Human')
+    if (texts) {
+      setTexts([
+          ...texts, 
+          { 
+            sender: 'Human',
+            message: input }
+        ])
+    } else {
+      setTexts([{ sender: 'Human', message: input }])
+    }
+    setInput('')
+    return
+  }
+  
   
   useEffect(() => {
-    console.log(texts)
+    if (lastMsg !== 'Human') return 
+    chatDispatch({
+      type: 'goat_reply',
+      payload: {
+        setTexts,
+        texts,
+      }
+    })
+    setLastMsg('Goat')
   }, [texts])
+
   return (
     <>
     <p className='greeting'> You and {goat.name} have matched! </p>
@@ -44,15 +73,7 @@ export default function Chat () {
       />
       <button 
       type='submit'
-      onClick={(e) => {
-        e.preventDefault()
-        setTexts([...texts, 
-          { 
-            sender: 'Human',
-            message: input }
-        ])}
-
-      } 
+      onClick={(e) => handleSendText(e) }
       >
         Send
       </button>
