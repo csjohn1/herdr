@@ -17,23 +17,43 @@ export default function Chat () {
     return null
   }
   const goat = getCurrentGoat()
-
+  console.log(chatState)
   const handleSendText = async (e) => {
     e.preventDefault()
     setLastMsg('Human')
     if (texts) {
+          //Put Msg in DB
+    chatDb[chatState.chat_id] = [
+      ...chatDb[chatState.chat_id],
+      { 
+        sender: 'Human',
+        message: input 
+      }
+    ]
       setTexts([
           ...texts, 
           { 
             sender: 'Human',
-            message: input }
+            message: input 
+          }
         ])
     } else {
+    //Put Msg in DB
+    chatDb[chatState.chat_id] = [
+      { 
+        sender: 'Human',
+        message: input 
+      }
+    ]
       setTexts([{ sender: 'Human', message: input }])
     }
     setInput('')
     return
   }
+
+  useEffect(() => {
+    setTexts(chatDb[chatState.chat_id])
+  }, [chatState])
   
   
   useEffect(() => {

@@ -25,7 +25,6 @@ export function SideBar() {
               className="side-card"
               key={match.id}
               onClick={() => {
-                console.log(match)
                 setName(match.name);
                 setUrl(match.url);
                 //setDialog(true);
