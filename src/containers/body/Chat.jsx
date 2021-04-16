@@ -4,7 +4,7 @@ import { db, chatDb } from '../../data/data'
 import './chat.css'
 
 
-export default function Chat () {
+export default function Chat() {
   const { chatState, chatDispatch } = useContext(ChatContext)
   const [texts, setTexts] = useState(chatDb[chatState.chat_id] || null)
   const [input, setInput] = useState('')
@@ -22,29 +22,29 @@ export default function Chat () {
     e.preventDefault()
     setLastMsg('Human')
     if (texts) {
-          //Put Msg in DB
-    chatDb[chatState.chat_id] = [
-      ...chatDb[chatState.chat_id],
-      { 
-        sender: 'Human',
-        message: input 
-      }
-    ]
+      //Put Msg in DB
+      chatDb[chatState.chat_id] = [
+        ...chatDb[chatState.chat_id],
+        {
+          sender: 'Human',
+          message: input
+        }
+      ]
       setTexts([
-          ...texts, 
-          { 
-            sender: 'Human',
-            message: input 
-          }
-        ])
+        ...texts,
+        {
+          sender: 'Human',
+          message: input
+        }
+      ])
     } else {
-    //Put Msg in DB
-    chatDb[chatState.chat_id] = [
-      { 
-        sender: 'Human',
-        message: input 
-      }
-    ]
+      //Put Msg in DB
+      chatDb[chatState.chat_id] = [
+        {
+          sender: 'Human',
+          message: input
+        }
+      ]
       setTexts([{ sender: 'Human', message: input }])
     }
     setInput('')
@@ -54,10 +54,10 @@ export default function Chat () {
   useEffect(() => {
     setTexts(chatDb[chatState.chat_id])
   }, [chatState])
-  
-  
+
+
   useEffect(() => {
-    if (lastMsg !== 'Human') return 
+    if (lastMsg !== 'Human') return
     chatDispatch({
       type: 'goat_reply',
       payload: {
@@ -70,34 +70,34 @@ export default function Chat () {
 
   return (
     <>
-    <p className='greeting'> You and {goat.name} have matched! </p>
-    {texts && (
-      texts.map((text) => {
-        return (
-          <div className={`textContainer_${text.sender}`}>
-            {text.sender === 'Goat' &&
-              <img className='chatProfilePic' src={goat.url} />
-            }
-            <p className={`${text.sender}_text`} >{text.message}</p>
-          </div>
-        )
-      })
-    )}
-    <form className='chat_input'>
-      <input 
-      className='chat_inputField'
-      placeholder="Type a message..."
-      type='text'
-      value={input}
-      onChange={ (e) => setInput(e.target.value)}
-      />
-      <button 
-      type='submit'
-      onClick={(e) => handleSendText(e) }
-      >
-        Send
+      <p className='greeting'> You and {goat.name} have matched! </p>
+      {texts && (
+        texts.map((text) => {
+          return (
+            <div className={`textContainer_${text.sender}`}>
+              {text.sender === 'Goat' &&
+                <img className='chatProfilePic' src={goat.url} />
+              }
+              <p className={`${text.sender}_text`} >{text.message}</p>
+            </div>
+          )
+        })
+      )}
+      <form className='chat_input'>
+        <input
+          className='chat_inputField'
+          placeholder="Type a message..."
+          type='text'
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        <button
+          type='submit'
+          onClick={(e) => handleSendText(e)}
+        >
+          Send
       </button>
-    </form>
+      </form>
     </>
   )
 }
